@@ -1,9 +1,10 @@
-<h1>{{ question.question_text }}</h1>
+<center><h1>{{ question.question_text }}</h1></center>
 
 {% if error_message %}
-    <p><strong>{{ error_message }}</strong></p>
+       <center><p><strong>{{ error_message }}</strong></p></center>
 {% endif %}
 
+<center>
 <form action="{% url 'polls:vote' question.id %}" method="post">
     {% csrf_token %}
     {% for choice in question.choice_set.all %}
@@ -12,3 +13,4 @@
     {% endfor %}
     <input type="submit" value="Vote" />
 </form>
+</center>
